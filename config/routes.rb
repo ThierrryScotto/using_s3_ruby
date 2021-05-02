@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'client/file', to: 'client#getAllFiles'
+  get 'client/file/:fileName', to: 'client#getFile'
+  post 'client/file', to: 'client#sendFile'
 end
