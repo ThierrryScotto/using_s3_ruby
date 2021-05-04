@@ -2,16 +2,21 @@ require_relative('../services/s3')
 
 class ClientController < ApplicationController
   def getFile
-    s3 = S3.new
-    puts s3.getFiles
+    begin
+      s3 = S3.new
+      file = s3.getFile(params['fileName'])
+
+    rescue => exeption
+      render json: "There was some error: #{exeption.class}", status: :bad_request
+    end
     
-    render json: "File name is: #{params[:fileName]}"
+    render json: file, status: 200
   end
 
   def getAllFiles
-    s3 = S3.new
-
     begin
+
+      s3 = S3.new
       data = s3.getFiles()
 
       render json: data, status: 200

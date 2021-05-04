@@ -12,7 +12,6 @@ class S3
 
   def initialize(bucketName=nil)
     s3 = Aws::S3::Resource.new
-
     @bucket = s3.bucket(ENV['BUCKET_NAME'])
   end
 
@@ -20,7 +19,10 @@ class S3
     data = @bucket.objects.each do |obj|
       "#{obj.key} => #{obj.etag}"
     end
-
     data
+  end
+
+  def getFile(fileName)
+    @bucket.objects(prefix: fileName)
   end
 end
