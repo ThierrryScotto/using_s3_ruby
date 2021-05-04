@@ -20,5 +20,11 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
+  
+Faltantes:
+Variaveis de ambientes
+Pegar todos (retornar images e files com ruby)
+Como pegar um dado pelo nome
+Salvar um file no s3
+Autenticare o user
 * ...

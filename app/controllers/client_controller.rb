@@ -16,7 +16,7 @@ class ClientController < ApplicationController
 
       render json: data, status: 200
     rescue => exeption
-      render json "There was some error: #{exeption.class}", status: :bad_request
+      render json: "There was some error: #{exeption.class}", status: :bad_request
     end
   end
 
